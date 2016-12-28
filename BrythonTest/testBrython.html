@@ -1,0 +1,46 @@
+<html>
+
+    <head>
+        <script type="text/javascript"
+            src="https://cdn.rawgit.com/brython-dev/brython/3.2.2/www/src/brython.js">
+        </script>
+    </head>
+
+    <body onload="brython()">
+
+        <script type="text/python">
+        from browser import document, alert, html
+        inputStr = ""
+
+        def hack(event):
+            alert(document["zone"].value)
+
+        document['mybutton'].bind('click', hack)
+
+
+        # All the elements will be inserted in the div with the "container" id
+        container = document['container']
+
+        # We create a new div element
+        newdiv = html.DIV(id = "new-div")
+
+        # Now we add the table to the new div previously created
+        newdiv <= table + html.BR()
+
+        # a form? why not?
+        form = html.FORM()
+        input1 = html.INPUT(type="text", name="firstname", value="First name")
+        input2 = html.INPUT(type="text", name="lastname", value="Last name")
+        input3 = html.BUTTON("Button with no action!")
+        form <= input1 + html.BR() + input2 + html.BR() + input3
+
+        newdiv <= form + html.BR()
+
+        container <= newdiv
+        </script>
+
+        <input id="zone"><button id="mybutton">Hack!!</button>
+
+    </body>
+
+</html>
